@@ -35,5 +35,12 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+      # prep
+      - name: Prepare Laravel Application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      # tests
       - name: Run PHP tests
         run: phpunit
